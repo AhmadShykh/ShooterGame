@@ -7,15 +7,16 @@ public class playerScript : MonoBehaviour
 {
     //[SerializeField] InputAction movement;
     [Header("Movement Settings")]
-    [Tooltip("SpaceShip Speed")] [SerializeField] float speed = 15f;
+    [Tooltip("SpaceShip Speed")] [SerializeField] float speed = 25f;
     [Tooltip("X Range from positive to negative")] [SerializeField] float xRange = 24f;
     [Tooltip("Y Range from positive to negative")] [SerializeField] float yRange = 15f;
 
     [Header("Array for all lasers")]
-    [SerializeField] ParticleSystem[] allLasers;
+    [SerializeField] GameObject[] allLasers;
+    //[SerializeField] GameObject[] allLasers;      //Other way of taking in the shooting particle
 
     [Header("Rotation Parameters")]
-    [SerializeField] float pitchPositionFactor = 2f;
+    [SerializeField] float pitchPositionFactor = 1f;
     [SerializeField] float pitchThrowFactor = -20f;
     [SerializeField] float rollThrowFactor = -20f;
     [SerializeField] float yawPositionFactor = -1f;
@@ -60,16 +61,21 @@ public class playerScript : MonoBehaviour
 
 	void ActivateParticles(bool allowEmit)
 	{
-		foreach (ParticleSystem eachLaser in allLasers)
+		foreach (GameObject eachLaser in allLasers)
 		{
-            if (allowEmit)
-            { 
-                if(!eachLaser.isEmitting ) eachLaser.Play(); 
-            }
-            else
-            {
-                if (eachLaser.isEmitting) eachLaser.Stop();
-            }
+            
+            var emissionModule = eachLaser.GetComponent<ParticleSystem>().emission;   //Other way to implement the shooting module.
+            emissionModule.enabled = allowEmit;
+
+
+            //if (allowEmit)
+            //{ 
+            //    if(!eachLaser.isEmitting && GetComponent<MeshRenderer>().enabled ) eachLaser.Play(); 
+            //}
+            //else
+            //{
+            //    if (eachLaser.isEmitting) eachLaser.Stop();
+            //}
         }
 	}
 
