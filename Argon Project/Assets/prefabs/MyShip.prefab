@@ -753,8 +753,8 @@ MonoBehaviour:
   allLasers:
   - {fileID: 8507500556988112781}
   - {fileID: 2970714410942878720}
-  pitchPositionFactor: 1
-  pitchThrowFactor: -20
+  pitchPositionFactor: -1
+  pitchThrowFactor: -25
   rollThrowFactor: -20
   yawPositionFactor: -1
 --- !u!54 &4013952460676111393

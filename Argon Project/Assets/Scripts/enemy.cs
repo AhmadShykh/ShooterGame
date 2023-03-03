@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-
     [SerializeField] GameObject destroyEffect;
-    [SerializeField] Transform parent;
+    GameObject newParent;
     [SerializeField] int enemyScore = 15;
     [SerializeField] float health = 10f;
     scoreBoard ScoreBoard;
-    MeshRenderer newMesh;
 
     // Start is called before the first frame update
     void Start()
     {
+        newParent = GameObject.FindGameObjectWithTag("runtime") ;
         
     }
 
@@ -27,30 +26,32 @@ public class enemy : MonoBehaviour
 	void OnParticleCollision(GameObject other)
 	{
         if(health != 0)
-		{
-            if (health - 3 > 0)
-            {
-                health -= 3;
-                StartCoroutine(flashRed());
-            }
-            else
-            {
-                health = 0;
-                GameObject vfx = Instantiate(destroyEffect, transform.position, Quaternion.identity);
-                vfx.transform.parent = parent;
-                Destroy(gameObject);
-                ScoreBoard.increaseScore(enemyScore);
-            }
-        }
-        
-        
+        processHit();	
+        if(health < 1)
+		    vanishObject();
+    }
+
+	private void vanishObject()
+	{
+		health = 0;
+		GameObject vfx = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+		vfx.transform.parent = newParent.transform;
+		Destroy(gameObject);
+        ScoreBoard.increaseScore(enemyScore);
 
     }
 
-    public IEnumerator flashRed()
+	private void processHit()
 	{
-        newMesh.material.color = Color.red;
-        yield return new WaitForSeconds(1f);
-        newMesh.material.color = Color.white;
+		health -= 3;
+        StartCoroutine(flashRed());
+	}
+
+	public IEnumerator flashRed()
+	{
+        
+        GetComponent<Renderer>().material.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        GetComponent<Renderer>().material.color = Color.white;
     }
 }
