@@ -49,11 +49,7 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -5993417392947676624, guid: ca4092fb07ca37941aaf942c8c3b3e9c, type: 2}
-    value: {fileID: 4733727693410507721}
-  - key: {fileID: -2017790616427590238, guid: ca4092fb07ca37941aaf942c8c3b3e9c, type: 2}
-    value: {fileID: 0}
+  m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
 --- !u!95 &4733727693410507721
@@ -167,6 +163,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4733727693410507722}
     m_Modifications:
+    - target: {fileID: 2014118524957547311, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: allLasers.Array.data[0]
+      value: 
+      objectReference: {fileID: 7154815539753298402}
+    - target: {fileID: 2014118524957547311, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: allLasers.Array.data[1]
+      value: 
+      objectReference: {fileID: 4350949452914369135}
+    - target: {fileID: 2970714410942878720, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970714410942878720, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3940870365899099749, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -215,10 +227,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: MyShip
       objectReference: {fileID: 0}
+    - target: {fileID: 4323679515362739546, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417152290169778773, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: delayTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145633943931375319, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022517715986070588, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1526
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022517715986070588, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23745
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022517715986070588, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.30081
+      objectReference: {fileID: 0}
+    - target: {fileID: 8507500556988112781, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8507500556988112781, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+--- !u!1 &4350949452914369135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4741320366148659469, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+  m_PrefabInstance: {fileID: 9055930405696932706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5412737477880186119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3940870365899099749, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
+  m_PrefabInstance: {fileID: 9055930405696932706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7154815539753298402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2226504906159235712, guid: b68cba14c8d7f4b4f8dc8104f7649274, type: 3}
   m_PrefabInstance: {fileID: 9055930405696932706}
   m_PrefabAsset: {fileID: 0}

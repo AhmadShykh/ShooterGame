@@ -22,30 +22,39 @@ public class enemy : MonoBehaviour
     {
         ScoreBoard = FindObjectOfType<scoreBoard>();
     }
-
+    
+	private void OnCollisionEnter(Collision collision)
+	{
+        vanishObject();
+	}
 	void OnParticleCollision(GameObject other)
 	{
-        if(health != 0)
-        processHit();	
-        if(health < 1)
-		    vanishObject();
+        if(health > 0)
+            processHit();	
+		    
     }
+    private void processHit()
+    {
 
-	private void vanishObject()
+        health -= 3;
+        StartCoroutine(flashRed());
+        if(health <= 0)
+		{
+            gameObject.GetComponent<Renderer>().enabled = false;
+            Destroy(gameObject);
+            vanishObject();
+        }
+    }
+    private void vanishObject()
 	{
-		health = 0;
-		GameObject vfx = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        
+        GameObject vfx = Instantiate(destroyEffect, transform.position, Quaternion.identity);
 		vfx.transform.parent = newParent.transform;
-		Destroy(gameObject);
         ScoreBoard.increaseScore(enemyScore);
 
     }
 
-	private void processHit()
-	{
-		health -= 3;
-        StartCoroutine(flashRed());
-	}
+	
 
 	public IEnumerator flashRed()
 	{

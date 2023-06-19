@@ -9,20 +9,7 @@ public class collisionDetector : MonoBehaviour
     [SerializeField] float delayTime = 3f;
     [SerializeField] ParticleSystem collisionParticle;
     [SerializeField] GameObject colliderObject;
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-	void OnTriggerEnter(Collider other)
-	{
-        crashSequence();
-	}
 	void OnCollisionEnter(Collision collision)
 	{
         crashSequence();

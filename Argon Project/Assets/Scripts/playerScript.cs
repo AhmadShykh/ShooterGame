@@ -13,7 +13,6 @@ public class playerScript : MonoBehaviour
 
     [Header("Array for all lasers")]
     [SerializeField] GameObject[] allLasers;
-    //[SerializeField] GameObject[] allLasers;      //Other way of taking in the shooting particle
 
     [Header("Rotation Parameters")]
     [SerializeField] float pitchPositionFactor = 1f;
@@ -84,7 +83,7 @@ public class playerScript : MonoBehaviour
         float pitch = transform.localPosition.y * pitchPositionFactor + yThrow * pitchThrowFactor;
         float yaw = transform.localPosition.x * yawPositionFactor ;
         float roll = xThrow * rollThrowFactor;
-
+        
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
 	}
 	void processTransformation()
@@ -99,7 +98,6 @@ public class playerScript : MonoBehaviour
 
 		float refinedX = Mathf.Clamp(xMovement, -xRange, xRange);
 		float refinedY = Mathf.Clamp(yMovement, -yRange, yRange);
-
 
 		transform.localPosition = new Vector3(refinedX, refinedY, transform.localPosition.z);
 	}
