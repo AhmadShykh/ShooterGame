@@ -58,7 +58,7 @@ public class playerScript : MonoBehaviour
         }
 	}
 
-	void ActivateParticles(bool allowEmit)
+	public void ActivateParticles(bool allowEmit)
 	{
 		foreach (GameObject eachLaser in allLasers)
 		{
